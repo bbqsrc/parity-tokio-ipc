@@ -177,6 +177,10 @@ impl Connection {
 	}
 }
 
+impl tonic::transport::server::Connected for Connection {
+
+}
+
 impl AsyncRead for Connection {
     unsafe fn prepare_uninitialized_buffer(&self, buf: &mut [MaybeUninit<u8>]) -> bool {
         self.inner.prepare_uninitialized_buffer(buf)
