@@ -172,11 +172,13 @@ pub struct Connection {
 }
 
 impl Connection {
+    #[allow(missing_docs)]
     pub fn wrap(pipe: NamedPipe) -> Self {
         Self { inner: pipe }
 	}
 }
 
+#[cfg(feature = "tonic")]
 impl tonic::transport::server::Connected for Connection {
 
 }
