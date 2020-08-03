@@ -156,7 +156,7 @@ impl Stream for Incoming {
             }
             Err(e) => {
                 if e.kind() == io::ErrorKind::WouldBlock {
-                    self.inner.pipe.clear_write_ready(ctx);
+                    self.inner.pipe.clear_write_ready(ctx)?;
                     Poll::Pending
                 } else {
                     Poll::Ready(Some(Err(e)))

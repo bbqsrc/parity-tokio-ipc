@@ -36,6 +36,7 @@ pub use win::{SecurityAttributes, Endpoint, Connection};
 pub use unix::{SecurityAttributes, Endpoint, Connection};
 
 /// For testing/examples
+#[doc(hidden)]
 pub fn dummy_endpoint() -> String {
 	let num: u64 = rand::Rng::gen(&mut rand::thread_rng());
 	if cfg!(windows) {
